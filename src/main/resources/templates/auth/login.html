@@ -1,0 +1,52 @@
+<!-- Created By
+ - Francois ASSOGBA
+ - at 09/05/2019
+ - with joy
+ - for the bookstore project! -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title id="pageTitle">Bookstore - Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/signin.css}"/>
+</head>
+<body class="text-center">
+<form th:action="@{/login}" method="POST" class="form-signin">
+    <div th:if="${param.error}" class="alert alert-danger">
+        <strong>Failed to login.</strong>
+        <span th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}">
+                <span th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}">Login / Password Invalide!</span>
+            </span>
+    </div>
+    <div th:if="${param.logout != null}" class="alert alert-success">
+        Vous &egrave;tes d&eacute;connect&eacute;.
+    </div>
+
+    <img class="mb-4" src="/img/bookstore.svg"
+         th:attr="src=@{/img/bookstore.svg},title=#{logo},alt=#{logo}" width="72"
+         height="72"/>
+    <h1 class="h3 mb-3 font-weight-normal">Connectez-vous!</h1>
+
+    <label for="username" class="sr-only">Address email</label>
+    <input name="username" id="username" class="form-control" placeholder="Address email"
+           required="" autofocus="" type="email"><br>
+
+
+    <label for="password" class="sr-only">Password</label>
+    <input id="password" class="form-control" placeholder="Password" required=""
+           name="password" type="password">
+
+    <div class="checkbox mb-3">
+        <label>
+            <input value="remember-me" type="checkbox">Se souvenir de moi
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br>
+    <p>Mot de passe <a href="#" class="">oubli&eacute;? </a> </p>
+    <p><a th:href="@{/signup}" class="">Inscrivez-vous!</a></p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018-2019 </p>
+</form>
+
+</body>
+</html>

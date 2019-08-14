@@ -1,0 +1,58 @@
+<!-- Created By
+ - Francois ASSOGBA
+ - at 09/05/2019
+ - with joy
+ - for the bookstore project! -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title id="pageTitle">Bookstore - Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/signin.css}"/>
+</head>
+
+<body class="text-center">
+<!--th:object="${signupForm}"-->
+<form action="#" th:action="@{/signup/client}" th:object="${clientRegistrationForm}"
+      method="POST" class="form-signin">
+
+    <img class="mb-4" src="/img/bookstore.svg"
+         th:attr="src=@{/img/bookstore.svg},title=#{logo},alt=#{logo}"
+         width="72" height="72"/>
+
+    <h1 class="h3 mb-3 font-weight-normal">Inscription - Client</h1>
+
+    <div th:if="${error}" class="alert alert-danger">
+        <strong th:text="${error}">Erreur.</strong>
+    </div>
+
+    <div class="form-group">
+        <label th:for="email" class="sr-only">Email address</label>
+        <input th:field="*{email}" class="form-control" placeholder="Email address"
+               required="" autofocus="" type="email" >
+        <span class="alert-danger rounded-circle" th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}">Email Error</span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="password" class="sr-only">Password</label>
+        <input th:field="*{password}"  class="form-control" placeholder="Password" required="" type="password" >
+        <span class="alert-danger rounded-circle" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="passwordConf" class="sr-only">Confirmation</label>
+        <input th:field="*{passwordConf}"  class="form-control" placeholder="Password confirmation" required=""
+                type="password">
+        <span class="alert-danger rounded-circle" th:if="${#fields.hasErrors('passwordConf')}"
+              th:errors="*{passwordConf}">Password confirmation Error</span>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2018-2019 </p>
+</form>
+
+</body>
+</html>

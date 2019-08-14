@@ -1,0 +1,72 @@
+<!-- Created By
+ - Francois ASSOGBA
+ - at 09/05/2019
+ - with joy
+ - for the bookstore project! -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title id="pageTitle">Bookstore - Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <style>
+        .div-center{
+            width: 100%;
+            max-width: 800px;
+            padding: 15px;
+            margin: auto;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="text-center" >
+
+<div class="div-center">
+<p class="text-center">Ambitioni dedisse scripsisse iudicaretur. Cras mattis
+    iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis
+    rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac,
+    sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam
+    indicere. Cras mattis iudicium purus sit amet fermentum.</p><br>
+</div>
+
+<div class="div-center row" >
+    <div class="col-sm-6">
+        <div class="card">
+            <img class="card-img-top" th:src="@{/img/client.jpg}" alt="Client" >
+            <div class="card-body">
+                <h5 class="card-title">Compte Client</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Tout ce dont vous avez besoins.</h6>
+                <p class="card-text">
+                    Vous avez accès a tous les contenus. Vous voulez un ouvrage,
+                    cliquez et obtenez! Tres simple hein!
+                </p>
+                <a th:href="@{/signup/client}" class="btn btn-primary btn-lg active card-link"
+                   role="button" aria-pressed="true">Continuer</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <img class="card-img-top" th:src="@{/img/editeur.jpg}" alt="Editeur">
+            <div class="card-body">
+                <h5 class="card-title">Compte Editeur</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Révéler votre business.</h6>
+                <p class="card-text">
+                    Avec cette option vous pouvez poster et vendre vos ouvrages sur notre plateforme!
+                    Cliquez <a class="card-link" href="#">ici</a> pour en savoir plus.
+                </p>
+                <a th:href="@{/signup/editor}" class="btn btn-primary btn-lg active card-link" role="button"
+                   aria-pressed="true">Continuer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

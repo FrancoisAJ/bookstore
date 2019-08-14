@@ -1,0 +1,23 @@
+<!-- Created By Francois ASSOGBA at 11/05/2019 for bookstore -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Access Denied</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/errors.css}"/>
+</head>
+<body class="text-center" th:with="httpStatus=${T(org.springframework.http.HttpStatus).valueOf(#response.status)}">
+
+<div class="div-center">
+    <h1 class="bigH1 align-content-center">Access Denied!</h1>
+    <h1 class="align-content-center" th:text="|${httpStatus} - ${httpStatus.reasonPhrase}|">403</h1>
+    <p class="alert-danger">You are not allowed to access this page. Try
+        <a class="alert-link" id="loginLink" th:href="@{/login}">logging in</a>
+        with an appropriate credentials
+    </p>
+</div>
+
+</body>
+</html>
